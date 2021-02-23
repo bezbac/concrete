@@ -195,6 +195,10 @@ function getTheme({ name }) {
       "settings.modifiedItemIndicator": colors.accent,
       "welcomePage.buttonBackground": colors.base.elevated,
       "welcomePage.buttonHoverBackground": colors.base.muted,
+
+      "editorError.foreground": colors.semantic.lintError,
+      "editorWarning.foreground": colors.semantic.lintWarning,
+      "editorInfo.foreground": colors.semantic.lintInfo,
     },
     semanticHighlighting: true,
     tokenColors: [

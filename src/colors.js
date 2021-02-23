@@ -57,6 +57,10 @@ const semantic = {
   conflictingResource: "#b392f0",
   modifiedResource: "#f1993b",
   ignoredResource: "#6a737d",
+
+  lintError: "#F32E2E",
+  lintWarning: "#FFA826",
+  lintInfo: "#4091c9",
 };
 
 const gutter = {
