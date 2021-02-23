@@ -50,7 +50,7 @@ function getTheme() {
 
   createItermColorElement(dict, "Selection Color", colors.background.selection);
   createItermColorElement(dict, "Selected Text Color", colors.base.sharp);
-  createItermColorElement(dict, "Link Color", colors.base.accent);
+  createItermColorElement(dict, "Link Color", colors.accent);
   createItermColorElement(dict, "Foreground Color", colors.base.text);
   createItermColorElement(dict, "Cursor Text Color", colors.base.text);
   createItermColorElement(dict, "Cursor Guide Color", colors.base.text);
@@ -62,12 +62,12 @@ function getTheme() {
   createItermColorElement(
     dict,
     getAnsiColorName("Black", false),
-    colors.base.black
+    colors.base.elevated
   );
   createItermColorElement(
     dict,
     getAnsiColorName("Black", true),
-    colors.base.lowered
+    colors.base.lush
   );
 
   createItermColorElement(
