@@ -1,0 +1,21 @@
+{
+  "name": "personal-theme",
+  "displayName": "Personal theme",
+  "description": "Personal theme",
+  "version": "0.1.0",
+  "engines": {
+    "vscode": "^1.14.0"
+  },
+  "categories": [
+    "Themes"
+  ],
+  "contributes": {
+    "themes": [
+      {
+        "label": "Personal Theme",
+        "uiTheme": "vs-dark",
+        "path": "./themes/dark.json"
+      }
+    ]
+  }
+}
