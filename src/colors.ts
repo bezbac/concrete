@@ -69,7 +69,7 @@ const gutter = {
   added: "#28a745",
 };
 
-module.exports = {
+export default {
   base,
   syntax,
   semantic,

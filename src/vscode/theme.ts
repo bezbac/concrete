@@ -1,6 +1,6 @@
-const colors = require("../colors");
+import colors from "../colors.ts";
 
-function getTheme({ name }) {
+function getTheme({ name }: { name: string }) {
   const workbenchForeground = colors.base.text;
   const editorForeground = colors.base.text;
 
@@ -83,7 +83,7 @@ function getTheme({ name }) {
       "notifications.background": colors.base.elevated,
       "notifications.border": colors.base.black,
       "notificationsErrorIcon.foreground": colors.gutter.deleted,
-      "notificationsWarningIcon.foreground": colors.changedForeground,
+      "notificationsWarningIcon.foreground": colors.gutter.modified,
       "notificationsInfoIcon.foreground": colors.syntax.comment,
 
       "pickerGroup.border": colors.base.muted,
@@ -521,4 +521,4 @@ function getTheme({ name }) {
   };
 }
 
-module.exports = getTheme;
+export default getTheme;
