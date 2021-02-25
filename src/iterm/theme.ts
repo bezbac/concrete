@@ -65,10 +65,10 @@ function getTheme() {
             ),
             createItermColorElement("Selected Text Color", colors.base.sharp),
             createItermColorElement("Link Color", colors.accent),
-            createItermColorElement("Foreground Color", colors.base.text),
-            createItermColorElement("Cursor Text Color", colors.base.text),
-            createItermColorElement("Cursor Guide Color", colors.base.text),
-            createItermColorElement("Cursor Color", colors.base.text),
+            createItermColorElement("Foreground Color", colors.base.soft),
+            createItermColorElement("Cursor Text Color", colors.base.soft),
+            createItermColorElement("Cursor Guide Color", colors.base.soft),
+            createItermColorElement("Cursor Color", colors.base.soft),
             createItermColorElement("Bold Color", colors.base.sharp),
             createItermColorElement("Badge Color", colors.background.badge),
             createItermColorElement("Background Color", colors.base.background),
@@ -79,7 +79,7 @@ function getTheme() {
             ),
             createItermColorElement(
               getAnsiColorName("Black", true),
-              colors.base.lush
+              colors.base.muted
             ),
 
             createItermColorElement(
