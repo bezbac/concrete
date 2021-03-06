@@ -8,10 +8,10 @@ ensureDir("./output/vscode/themes").then(() =>
       overwrite: true,
     }),
     Deno.writeTextFile(
-      "./output/vscode/themes/dark.json",
+      "./output/vscode/themes/concrete-dark.json",
       JSON.stringify(
         getVsCodeTheme({
-          name: "Personal Theme",
+          name: "Concrete",
         }),
         null,
         2
@@ -23,7 +23,7 @@ ensureDir("./output/vscode/themes").then(() =>
 ensureDir("./output/iterm2/themes").then(() =>
   Promise.all([
     Deno.writeTextFile(
-      "./output/iterm2/themes/dark.itermcolors",
+      "./output/iterm2/themes/concrete-dark.itermcolors",
       getItermTheme()
     ),
   ])
