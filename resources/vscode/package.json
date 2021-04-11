@@ -1,7 +1,7 @@
 {
-  "name": "concrete",
-  "displayName": "Concrete",
-  "description": "A dark theme that blend into MacOS seamlessly.",
+  "name": "concrete-vscode",
+  "displayName": "Concrete Theme",
+  "description": "A vibrant dark theme that blends into MacOS seamlessly.",
   "version": "0.1.0",
   "engines": {
     "vscode": "^1.14.0"
@@ -17,5 +17,12 @@
         "path": "./themes/concrete-dark.json"
       }
     ]
-  }
+  },
+  "homepage": "https://github.com/bezbac/concrete",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bezbac/concrete"
+  },
+  "icon": "images/icon.png",
+  "license": "BSD-3-Clause"
 }
