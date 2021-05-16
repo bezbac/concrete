@@ -2,6 +2,7 @@ import { ensureDir, copy } from "https://deno.land/std@0.88.0/fs/mod.ts";
 import getVsCodeTheme from "./vscode/theme.ts";
 import getItermTheme from "./iterm/theme.ts";
 import getPrismTheme from "./prism/theme.ts";
+import getPaletteTheme from "./palette/theme.ts";
 
 Promise.all([
   ensureDir("./output/vscode/themes"),
@@ -40,6 +41,14 @@ ensureDir("./output/prism/themes").then(() =>
   Promise.all([
     getPrismTheme().then((output) =>
       Deno.writeTextFile("./output/prism/themes/concrete-dark.css", output)
+    ),
+  ])
+);
+
+ensureDir("./output/palette/themes").then(() =>
+  Promise.all([
+    getPaletteTheme().then((output) =>
+      Deno.writeTextFile("./output/palette/themes/concrete-dark.html", output)
     ),
   ])
 );
