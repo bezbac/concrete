@@ -1,21 +1,28 @@
-import { ensureDir, copy } from "https://deno.land/std@0.88.0/fs/mod.ts";
-import getVsCodeTheme from "./vscode/theme.ts";
-import getItermTheme from "./iterm/theme.ts";
-import getPrismTheme from "./prism/theme.ts";
-import getPaletteTheme from "./palette/theme.ts";
+import fs from "fs/promises";
+import getVsCodeTheme from "./vscode/theme";
+import getItermTheme from "./iterm/theme";
+import getPrismTheme from "./prism/theme";
+import getPaletteTheme from "./palette/theme";
+
+async function ensureDir(path: string) {
+  return fs.stat(path).catch(async (err) => {
+    if (err.message.includes("no such file or directory")) {
+      await fs.mkdir(path);
+    }
+  });
+}
 
 Promise.all([
   ensureDir("./output/vscode/themes"),
   ensureDir("./output/vscode/images"),
 ]).then(() =>
   Promise.all([
-    copy("./resources/vscode/package.json", "./output/vscode/package.json", {
-      overwrite: true,
-    }),
-    copy("./resources/icon.png", "./output/vscode/images/icon.png", {
-      overwrite: true,
-    }),
-    Deno.writeTextFile(
+    fs.copyFile(
+      "./resources/vscode/package.json",
+      "./output/vscode/package.json"
+    ),
+    fs.copyFile("./resources/icon.png", "./output/vscode/images/icon.png"),
+    fs.writeFile(
       "./output/vscode/themes/concrete-dark.json",
       JSON.stringify(
         getVsCodeTheme({
@@ -30,7 +37,7 @@ Promise.all([
 
 ensureDir("./output/iterm2/themes").then(() =>
   Promise.all([
-    Deno.writeTextFile(
+    fs.writeFile(
       "./output/iterm2/themes/concrete-dark.itermcolors",
       getItermTheme()
     ),
@@ -40,7 +47,7 @@ ensureDir("./output/iterm2/themes").then(() =>
 ensureDir("./output/prism/themes").then(() =>
   Promise.all([
     getPrismTheme().then((output) =>
-      Deno.writeTextFile("./output/prism/themes/concrete-dark.css", output)
+      fs.writeFile("./output/prism/themes/concrete-dark.css", output)
     ),
   ])
 );
@@ -48,7 +55,7 @@ ensureDir("./output/prism/themes").then(() =>
 ensureDir("./output/palette/themes").then(() =>
   Promise.all([
     getPaletteTheme().then((output) =>
-      Deno.writeTextFile("./output/palette/themes/concrete-dark.html", output)
+      fs.writeFile("./output/palette/themes/concrete-dark.html", output)
     ),
   ])
 );

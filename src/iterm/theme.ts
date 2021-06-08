@@ -1,37 +1,35 @@
-import colors from "../colors.ts";
-import {
-  serialize,
-  tag,
-  declaration,
-  Tag,
-} from "https://raw.githubusercontent.com/olaven/serialize-xml/v0.3.2/mod.ts";
-import Color from "https://esm.sh/color@3.1.3";
+import colors from "../colors";
+import Color from "color";
+import builder, { XMLElement } from "xmlbuilder";
 
-function createItermColorElement(name: string, hex: string): Tag[] {
+function createItermColorElement(
+  rootElement: XMLElement,
+  name: string,
+  hex: string
+) {
   const [r, g, b] = Color(hex)
     .rgb()
     .array()
-    .map((v: number) => v / 255);
+    .map((v) => v / 255);
 
-  return [
-    tag("key", name),
-    tag("dict", [
-      tag("key", "Alpha Component"),
-      tag("real", "1"),
+  const nameNode = rootElement.ele("key");
+  nameNode.text(name);
 
-      tag("key", "Blue Component"),
-      tag("real", b.toPrecision(17)),
+  const valuesDict = rootElement.ele("dict");
+  valuesDict.ele("key").text("Alpha Component");
+  valuesDict.ele("real").text("1");
 
-      tag("key", "Green Component"),
-      tag("real", g.toPrecision(17)),
+  valuesDict.ele("key").text("Blue Component");
+  valuesDict.ele("real").text(b.toPrecision(17));
 
-      tag("key", "Red Component"),
-      tag("real", r.toPrecision(17)),
+  valuesDict.ele("key").text("Green Component");
+  valuesDict.ele("real").text(g.toPrecision(17));
 
-      tag("key", "Color Space"),
-      tag("string", "sRGB"),
-    ]),
-  ];
+  valuesDict.ele("key").text("Red Component");
+  valuesDict.ele("real").text(r.toPrecision(17));
+
+  valuesDict.ele("key").text("Color Space");
+  valuesDict.ele("string").text("sRGB");
 }
 
 const ansiColors = [
@@ -51,105 +49,111 @@ function getAnsiColorName(name: string, bright: boolean) {
 }
 
 function getTheme() {
-  return serialize(
-    declaration([["version", "1.0"]]),
-    tag(
-      "plist",
-      [
-        tag(
-          "dict",
-          [
-            createItermColorElement(
-              "Selection Color",
-              colors.background.selection
-            ),
-            createItermColorElement("Selected Text Color", colors.base.sharp),
-            createItermColorElement("Link Color", colors.accent),
-            createItermColorElement("Foreground Color", colors.base.soft),
-            createItermColorElement("Cursor Text Color", colors.base.soft),
-            createItermColorElement("Cursor Guide Color", colors.base.soft),
-            createItermColorElement("Cursor Color", colors.base.soft),
-            createItermColorElement("Bold Color", colors.base.sharp),
-            createItermColorElement("Badge Color", colors.background.badge),
-            createItermColorElement("Background Color", colors.base.background),
+  const root = builder.create("plist");
+  root.attribute("version", "1.0");
 
-            createItermColorElement(
-              getAnsiColorName("Black", false),
-              colors.base.elevated
-            ),
-            createItermColorElement(
-              getAnsiColorName("Black", true),
-              colors.base.muted
-            ),
+  const dict = root.ele("dict");
 
-            createItermColorElement(
-              getAnsiColorName("Red", false),
-              colors.syntax.deleted
-            ),
-            createItermColorElement(
-              getAnsiColorName("Red", true),
-              colors.syntax.deleted
-            ),
+  createItermColorElement(dict, "Selection Color", colors.background.selection);
+  createItermColorElement(dict, "Selected Text Color", colors.base.sharp);
+  createItermColorElement(dict, "Link Color", colors.accent);
+  createItermColorElement(dict, "Foreground Color", colors.base.soft);
+  createItermColorElement(dict, "Cursor Text Color", colors.base.soft);
+  createItermColorElement(dict, "Cursor Guide Color", colors.base.soft);
+  createItermColorElement(dict, "Cursor Color", colors.base.soft);
+  createItermColorElement(dict, "Bold Color", colors.base.sharp);
+  createItermColorElement(dict, "Badge Color", colors.background.badge);
+  createItermColorElement(dict, "Background Color", colors.base.background);
 
-            createItermColorElement(
-              getAnsiColorName("Green", false),
-              colors.syntax.regexp
-            ),
-            createItermColorElement(
-              getAnsiColorName("Green", true),
-              colors.syntax.regexp
-            ),
-
-            createItermColorElement(
-              getAnsiColorName("Yellow", false),
-              colors.syntax.variable
-            ),
-            createItermColorElement(
-              getAnsiColorName("Yellow", true),
-              colors.syntax.variable
-            ),
-
-            createItermColorElement(
-              getAnsiColorName("Blue", false),
-              colors.syntax.support
-            ),
-            createItermColorElement(
-              getAnsiColorName("Blue", true),
-              colors.syntax.support
-            ),
-
-            createItermColorElement(
-              getAnsiColorName("Magenta", false),
-              colors.syntax.entity
-            ),
-            createItermColorElement(
-              getAnsiColorName("Magenta", true),
-              colors.syntax.entity
-            ),
-
-            createItermColorElement(
-              getAnsiColorName("Cyan", false),
-              colors.syntax.string
-            ),
-            createItermColorElement(
-              getAnsiColorName("Cyan", true),
-              colors.syntax.string
-            ),
-
-            createItermColorElement(
-              getAnsiColorName("White", false),
-              colors.base.text
-            ),
-            createItermColorElement(
-              getAnsiColorName("White", true),
-              colors.base.sharp
-            ),
-          ].flat()
-        ),
-      ],
-      [["version", "1.0"]]
-    )
+  createItermColorElement(
+    dict,
+    getAnsiColorName("Black", false),
+    colors.base.elevated
   );
+  createItermColorElement(
+    dict,
+    getAnsiColorName("Black", true),
+    colors.base.muted
+  );
+
+  createItermColorElement(
+    dict,
+    getAnsiColorName("Red", false),
+    colors.syntax.deleted
+  );
+  createItermColorElement(
+    dict,
+    getAnsiColorName("Red", true),
+    colors.syntax.deleted
+  );
+
+  createItermColorElement(
+    dict,
+    getAnsiColorName("Green", false),
+    colors.syntax.regexp
+  );
+  createItermColorElement(
+    dict,
+    getAnsiColorName("Green", true),
+    colors.syntax.regexp
+  );
+
+  createItermColorElement(
+    dict,
+    getAnsiColorName("Yellow", false),
+    colors.syntax.variable
+  );
+  createItermColorElement(
+    dict,
+    getAnsiColorName("Yellow", true),
+    colors.syntax.variable
+  );
+
+  createItermColorElement(
+    dict,
+    getAnsiColorName("Blue", false),
+    colors.syntax.support
+  );
+  createItermColorElement(
+    dict,
+    getAnsiColorName("Blue", true),
+    colors.syntax.support
+  );
+
+  createItermColorElement(
+    dict,
+    getAnsiColorName("Magenta", false),
+    colors.syntax.entity
+  );
+  createItermColorElement(
+    dict,
+    getAnsiColorName("Magenta", true),
+    colors.syntax.entity
+  );
+
+  createItermColorElement(
+    dict,
+    getAnsiColorName("Cyan", false),
+    colors.syntax.string
+  );
+  createItermColorElement(
+    dict,
+    getAnsiColorName("Cyan", true),
+    colors.syntax.string
+  );
+
+  createItermColorElement(
+    dict,
+    getAnsiColorName("White", false),
+    colors.base.text
+  );
+  createItermColorElement(
+    dict,
+    getAnsiColorName("White", true),
+    colors.base.sharp
+  );
+
+  return root.end({ pretty: true });
 }
 
 export default getTheme;

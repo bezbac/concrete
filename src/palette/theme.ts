@@ -1,5 +1,5 @@
-import colors from "../colors.ts";
-import { html } from "https://deno.land/x/html/mod.ts";
+import colors from "../colors";
+import html from "html-template-tag";
 
 interface ColorObject {
   [index: string]: string | ColorObject;

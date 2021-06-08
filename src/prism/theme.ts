@@ -1,9 +1,12 @@
-import colors from "../colors.ts";
-import Mustache from "https://cdn.skypack.dev/mustache";
+import colors from "../colors";
+import fs from "fs/promises";
+import Mustache from "mustache";
 
 async function getTheme(): Promise<string> {
-  const template = await Deno.readTextFile("resources/prism/styles.css");
-  const output = (Mustache as any).render(template, colors);
+  const template = await fs.readFile("resources/prism/styles.css", {
+    encoding: "utf-8",
+  });
+  const output = Mustache.render(template, colors);
   return output;
 }
 

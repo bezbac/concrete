@@ -1,0 +1,25 @@
+{
+  "name": "concrete",
+  "version": "0.1.0",
+  "main": "index.js",
+  "repository": "git@github.com:bezbac/concrete.git",
+  "scripts": {
+    "build": "ts-node src/main.ts",
+    "publish/vscode": "cd output/vscode && vsce publish",
+    "apply/vscode": "rm -rf ~/.vscode/extensions/bezbac.concrete-vscode-0.1.0 && cp -R './output/vscode' ~/.vscode/extensions/bezbac.concrete-vscode-0.1.0"
+  },
+  "private": "true",
+  "devDependencies": {
+    "@types/color": "^3.0.1",
+    "@types/mustache": "^4.1.1",
+    "@types/node": "^15.12.2",
+    "ts-node": "^10.0.0",
+    "typescript": "^4.3.2"
+  },
+  "dependencies": {
+    "color": "^3.1.3",
+    "html-template-tag": "^4.0.0",
+    "mustache": "^4.2.0",
+    "xmlbuilder": "^15.1.1"
+  }
+}

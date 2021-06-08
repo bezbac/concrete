@@ -1,4 +1,4 @@
-import colors from "../colors.ts";
+import colors from "../colors";
 
 function getTheme({ name }: { name: string }) {
   const workbenchForeground = colors.base.text;
