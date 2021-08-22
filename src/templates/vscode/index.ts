@@ -139,10 +139,10 @@ function createTheme({ metadata: { name }, colors }: Theme) {
       "list.inactiveSelectionForeground": workbenchForeground,
       "list.activeSelectionForeground": workbenchForeground,
       "list.hoverBackground": colors.base.elevated,
-      "list.inactiveSelectionBackground": colors.base.elevated,
       "list.activeSelectionBackground": colors.background.activeSelection,
-      "list.inactiveFocusBackground": colors.background.selection,
-      "list.focusBackground": colors.background.activeSelection,
+      "list.inactiveSelectionBackground": colors.background.inactiveSelection,
+      "list.focusBackground": colors.base.muted,
+      "list.inactiveFocusBackground": colors.base.elevated,
 
       "tree.indentGuidesStroke": colors.base.elevated,
 
