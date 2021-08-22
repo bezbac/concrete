@@ -2,14 +2,14 @@ import { ThemeGenerator } from "../../types";
 import { ensureDir } from "../../util/filesystem";
 import fs from "fs/promises";
 import path from "path";
-import { Theme } from "../../theme";
+import { Colors } from "../../colors";
 
-export const generate: ThemeGenerator = async ({ theme, outputDirectory }) => {
+export const generate: ThemeGenerator = async ({ colors, outputDirectory }) => {
   await ensureDir(outputDirectory);
 
   fs.writeFile(
-    path.join(outputDirectory, `./${theme.metadata.filename}.html`),
-    await createTheme(theme)
+    path.join(outputDirectory, `./concrete.html`),
+    await createTheme(colors)
   );
 };
 
@@ -39,7 +39,7 @@ function renderColors(colors: ColorObject): string {
     .join("\n");
 }
 
-async function createTheme({ colors }: Theme): Promise<string> {
+async function createTheme(colors: Colors): Promise<string> {
   return `
     <!DOCTYPE html>
     <html lang="en">

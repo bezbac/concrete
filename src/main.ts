@@ -1,5 +1,5 @@
 import path from "path";
-import theme from "./theme";
+import colors from "./colors";
 import { generate as generateVscodeTheme } from "./templates/vscode";
 import { generate as generateITermTheme } from "./templates/iterm";
 import { generate as generatePrismTheme } from "./templates/prism";
@@ -9,25 +9,25 @@ const baseOutputDirectory = path.resolve("./output/");
 const baseResourceDirectory = path.resolve("./resources/");
 
 generateVscodeTheme({
-  theme,
+  colors,
   baseResourceDirectory,
   outputDirectory: path.join(baseOutputDirectory, "vscode"),
 });
 
 generateITermTheme({
-  theme,
+  colors,
   baseResourceDirectory,
   outputDirectory: path.join(baseOutputDirectory, "iterm2"),
 });
 
 generatePrismTheme({
-  theme,
+  colors,
   baseResourceDirectory,
   outputDirectory: path.join(baseOutputDirectory, "prism"),
 });
 
 generatePreviewTheme({
-  theme,
+  colors,
   baseResourceDirectory,
   outputDirectory: path.join(baseOutputDirectory, "preview"),
 });

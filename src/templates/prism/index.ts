@@ -4,7 +4,7 @@ import path from "path";
 import { ThemeGenerator } from "../../types";
 import { ensureDir } from "../../util/filesystem";
 
-export const generate: ThemeGenerator = async ({ theme, outputDirectory }) => {
+export const generate: ThemeGenerator = async ({ colors, outputDirectory }) => {
   await ensureDir(outputDirectory);
 
   const template = await fs.readFile(
@@ -14,10 +14,7 @@ export const generate: ThemeGenerator = async ({ theme, outputDirectory }) => {
     }
   );
 
-  const output = Mustache.render(template, theme.colors);
+  const output = Mustache.render(template, colors);
 
-  fs.writeFile(
-    path.join(outputDirectory, `./${theme.metadata.filename}.css`),
-    output
-  );
+  fs.writeFile(path.join(outputDirectory, `./concrete.css`), output);
 };

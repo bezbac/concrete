@@ -1,7 +1,7 @@
-import { Theme } from "./theme";
+import { Colors } from "./colors";
 
 export type ThemeGenerator = (config: {
-  theme: Theme;
+  colors: Colors;
   baseResourceDirectory: string;
   outputDirectory: string;
 }) => Promise<void>;

@@ -1,40 +1,33 @@
 import fs from "fs/promises";
 import path from "path";
-import { Theme } from "../../theme";
+import { Colors } from "../../colors";
 import { ThemeGenerator } from "../../types";
 import { ensureDir } from "../../util/filesystem";
 
 export const generate: ThemeGenerator = async ({
-  theme,
+  colors,
   baseResourceDirectory,
   outputDirectory,
 }) => {
   await Promise.all([
-    ensureDir(
-      path.join(outputDirectory, `./${theme.metadata.filename}/themes`)
-    ),
-    ensureDir(
-      path.join(outputDirectory, `./${theme.metadata.filename}/images`)
-    ),
+    ensureDir(path.join(outputDirectory, `./themes`)),
+    ensureDir(path.join(outputDirectory, `./images`)),
   ]).then(() =>
     Promise.all([
       fs.copyFile(
         path.join(baseResourceDirectory, "./icon.png"),
-        path.join(
-          outputDirectory,
-          `./${theme.metadata.filename}/images/icon.png`
-        )
+        path.join(outputDirectory, `./images/icon.png`)
       ),
 
       fs.writeFile(
-        path.join(outputDirectory, `./${theme.metadata.filename}/package.json`),
+        path.join(outputDirectory, `./package.json`),
         JSON.stringify(
           {
             name: "concrete-vscode",
-            displayName: `${theme.metadata.name}`,
+            displayName: `Concrete`,
             description:
               "A vibrant dark theme that blends into MacOS seamlessly.",
-            version: "0.1.0",
+            version: process.env.npm_package_version,
             engines: {
               vscode: "^1.14.0",
             },
@@ -42,12 +35,13 @@ export const generate: ThemeGenerator = async ({
             contributes: {
               themes: [
                 {
-                  label: `${theme.metadata.name}`,
+                  label: `Concrete`,
                   uiTheme: "vs-dark",
-                  path: `./themes/${theme.metadata.filename}.json`,
+                  path: `./themes/concrete.json`,
                 },
               ],
             },
+            author: "Ben Bachem <10088265+bezbac@users.noreply.github.com>",
             homepage: "https://github.com/bezbac/concrete",
             repository: {
               type: "git",
@@ -62,19 +56,19 @@ export const generate: ThemeGenerator = async ({
       ),
 
       fs.writeFile(
-        `./output/vscode/${theme.metadata.filename}/themes/concrete-dark.json`,
-        JSON.stringify(createTheme(theme), null, 2)
+        `./output/vscode/themes/concrete-dark.json`,
+        JSON.stringify(createTheme(colors), null, 2)
       ),
     ])
   );
 };
 
-function createTheme({ metadata: { name }, colors }: Theme) {
+function createTheme(colors: Colors) {
   const workbenchForeground = colors.base.text;
   const editorForeground = colors.base.text;
 
   return {
-    name: name,
+    name: "Concrete",
     colors: {
       focusBorder: colors.transparent,
       foreground: colors.base.text,

@@ -3,11 +3,11 @@
   "version": "0.1.0",
   "main": "index.js",
   "repository": "git@github.com:bezbac/concrete.git",
+  "author": "Ben Bachem <10088265+bezbac@users.noreply.github.com>",
   "scripts": {
     "build": "ts-node src/main.ts",
     "lint": "eslint .",
-    "publish/vscode": "cd output/vscode && vsce publish",
-    "apply/vscode": "rm -rf ~/.vscode/extensions/bezbac.concrete-vscode-0.1.0 && cp -R './output/vscode/concrete-dark' ~/.vscode/extensions/bezbac.concrete-vscode-0.1.0"
+    "apply/vscode": "rm -rf ~/.vscode/extensions/bezbac.concrete-vscode-* && cp -R './output/vscode' ~/.vscode/extensions/bezbac.concrete-vscode-$npm_package_version"
   },
   "private": "true",
   "devDependencies": {

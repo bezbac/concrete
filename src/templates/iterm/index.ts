@@ -4,13 +4,13 @@ import { ThemeGenerator } from "../../types";
 import { ensureDir } from "../../util/filesystem";
 import path from "path";
 import fs from "fs/promises";
-import { Theme } from "../../theme";
+import { Colors } from "../../colors";
 
-export const generate: ThemeGenerator = async ({ theme, outputDirectory }) => {
+export const generate: ThemeGenerator = async ({ colors, outputDirectory }) => {
   await ensureDir(outputDirectory);
   await fs.writeFile(
-    path.join(outputDirectory, `./${theme.metadata.filename}.itermcolors`),
-    createTheme(theme)
+    path.join(outputDirectory, `./concrete.itermcolors`),
+    createTheme(colors)
   );
 };
 
@@ -60,7 +60,7 @@ function getAnsiColorName(name: string, bright: boolean) {
   return "Ansi " + index + " Color";
 }
 
-function createTheme({ colors }: Theme) {
+function createTheme(colors: Colors) {
   const root = builder.create("plist");
   root.attribute("version", "1.0");
 
