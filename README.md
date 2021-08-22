@@ -28,3 +28,13 @@ Legend:
 
 - ✅ Supported
 - 🚧 Beta
+
+## Create a new release
+
+`yarn release`
+
+### Release vscode extension
+
+`cd output/vscode`  
+`vsce package`  
+`vsce publish`
