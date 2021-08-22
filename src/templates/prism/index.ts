@@ -4,14 +4,15 @@ import path from "path";
 import { ThemeGenerator } from "../../types";
 import { ensureDir } from "../../util/filesystem";
 
-export const generate: ThemeGenerator = async ({
-  theme, baseResourceDirectory, outputDirectory
-}) => {
+export const generate: ThemeGenerator = async ({ theme, outputDirectory }) => {
   await ensureDir(outputDirectory);
 
-  const template = await fs.readFile(path.join(__dirname, `./styles.css`), {
-    encoding: "utf-8",
-  });
+  const template = await fs.readFile(
+    path.join(__dirname, `./styles.css.template`),
+    {
+      encoding: "utf-8",
+    }
+  );
 
   const output = Mustache.render(template, theme.colors);
 
@@ -19,4 +20,4 @@ export const generate: ThemeGenerator = async ({
     path.join(outputDirectory, `./${theme.metadata.filename}.css`),
     output
   );
-}
+};

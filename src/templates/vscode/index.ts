@@ -5,45 +5,56 @@ import { ThemeGenerator } from "../../types";
 import { ensureDir } from "../../util/filesystem";
 
 export const generate: ThemeGenerator = async ({
-  theme, baseResourceDirectory, outputDirectory
+  theme,
+  baseResourceDirectory,
+  outputDirectory,
 }) => {
   await Promise.all([
-    ensureDir(path.join(outputDirectory, `./${theme.metadata.filename}/themes`)),
-    ensureDir(path.join(outputDirectory, `./${theme.metadata.filename}/images`)),
+    ensureDir(
+      path.join(outputDirectory, `./${theme.metadata.filename}/themes`)
+    ),
+    ensureDir(
+      path.join(outputDirectory, `./${theme.metadata.filename}/images`)
+    ),
   ]).then(() =>
     Promise.all([
-      fs.copyFile(path.join(baseResourceDirectory, "./icon.png"), path.join(outputDirectory, `./${theme.metadata.filename}/images/icon.png`)),
+      fs.copyFile(
+        path.join(baseResourceDirectory, "./icon.png"),
+        path.join(
+          outputDirectory,
+          `./${theme.metadata.filename}/images/icon.png`
+        )
+      ),
 
       fs.writeFile(
         path.join(outputDirectory, `./${theme.metadata.filename}/package.json`),
         JSON.stringify(
           {
-            "name": "concrete-vscode",
-            "displayName": `${theme.metadata.name}`,
-            "description": "A vibrant dark theme that blends into MacOS seamlessly.",
-            "version": "0.1.0",
-            "engines": {
-              "vscode": "^1.14.0"
+            name: "concrete-vscode",
+            displayName: `${theme.metadata.name}`,
+            description:
+              "A vibrant dark theme that blends into MacOS seamlessly.",
+            version: "0.1.0",
+            engines: {
+              vscode: "^1.14.0",
             },
-            "categories": [
-              "Themes"
-            ],
-            "contributes": {
-              "themes": [
+            categories: ["Themes"],
+            contributes: {
+              themes: [
                 {
-                  "label": `${theme.metadata.name}`,
-                  "uiTheme": "vs-dark",
-                  "path": `./themes/${theme.metadata.filename}.json`
-                }
-              ]
+                  label: `${theme.metadata.name}`,
+                  uiTheme: "vs-dark",
+                  path: `./themes/${theme.metadata.filename}.json`,
+                },
+              ],
             },
-            "homepage": "https://github.com/bezbac/concrete",
-            "repository": {
-              "type": "git",
-              "url": "https://github.com/bezbac/concrete"
+            homepage: "https://github.com/bezbac/concrete",
+            repository: {
+              type: "git",
+              url: "https://github.com/bezbac/concrete",
             },
-            "icon": "images/icon.png",
-            "license": "BSD-3-Clause"
+            icon: "images/icon.png",
+            license: "BSD-3-Clause",
           },
           null,
           2
@@ -52,15 +63,11 @@ export const generate: ThemeGenerator = async ({
 
       fs.writeFile(
         `./output/vscode/${theme.metadata.filename}/themes/concrete-dark.json`,
-        JSON.stringify(
-          createTheme(theme),
-          null,
-          2
-        )
+        JSON.stringify(createTheme(theme), null, 2)
       ),
     ])
   );
-}
+};
 
 function createTheme({ metadata: { name }, colors }: Theme) {
   const workbenchForeground = colors.base.text;
@@ -582,4 +589,3 @@ function createTheme({ metadata: { name }, colors }: Theme) {
     ],
   };
 }
-

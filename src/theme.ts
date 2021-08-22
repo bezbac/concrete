@@ -2,7 +2,7 @@ const THEME = {
   metadata: {
     name: "Concrete",
     filename: "concrete-dark",
-    packageName: "concrete-dark"
+    packageName: "concrete-dark",
   },
   colors: {
     base: {
@@ -73,8 +73,8 @@ const THEME = {
     },
     accent: "#4091c9",
     transparent: "#00000000",
-  }
-}
+  },
+};
 
 export type Theme = typeof THEME;
 export default THEME;

@@ -1,4 +1,3 @@
-
 import Color from "color";
 import builder, { XMLElement } from "xmlbuilder";
 import { ThemeGenerator } from "../../types";
@@ -7,15 +6,13 @@ import path from "path";
 import fs from "fs/promises";
 import { Theme } from "../../theme";
 
-export const generate: ThemeGenerator = async ({
-  theme, outputDirectory
-}) => {
-  await ensureDir(outputDirectory)
+export const generate: ThemeGenerator = async ({ theme, outputDirectory }) => {
+  await ensureDir(outputDirectory);
   await fs.writeFile(
     path.join(outputDirectory, `./${theme.metadata.filename}.itermcolors`),
     createTheme(theme)
-  )
-}
+  );
+};
 
 function createItermColorElement(
   rootElement: XMLElement,
@@ -170,4 +167,3 @@ function createTheme({ colors }: Theme) {
 
   return root.end({ pretty: true });
 }
-

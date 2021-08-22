@@ -1,20 +1,17 @@
-import html from "html-template-tag";
 import { ThemeGenerator } from "../../types";
 import { ensureDir } from "../../util/filesystem";
 import fs from "fs/promises";
 import path from "path";
 import { Theme } from "../../theme";
 
-export const generate: ThemeGenerator = async ({
-  theme, outputDirectory
-}) => {
-  await ensureDir(outputDirectory)
+export const generate: ThemeGenerator = async ({ theme, outputDirectory }) => {
+  await ensureDir(outputDirectory);
 
   fs.writeFile(
     path.join(outputDirectory, `./${theme.metadata.filename}.html`),
     await createTheme(theme)
   );
-}
+};
 
 interface ColorObject {
   [index: string]: string | ColorObject;
@@ -91,4 +88,3 @@ async function createTheme({ colors }: Theme): Promise<string> {
     </html>
   `;
 }
-
