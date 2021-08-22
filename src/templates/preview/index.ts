@@ -1,5 +1,20 @@
-import colors from "../colors";
 import html from "html-template-tag";
+import { ThemeGenerator } from "../../types";
+import { ensureDir } from "../../util/filesystem";
+import fs from "fs/promises";
+import path from "path";
+import { Theme } from "../../theme";
+
+export const generate: ThemeGenerator = async ({
+  theme, outputDirectory
+}) => {
+  await ensureDir(outputDirectory)
+
+  fs.writeFile(
+    path.join(outputDirectory, `./${theme.metadata.filename}.html`),
+    await createTheme(theme)
+  );
+}
 
 interface ColorObject {
   [index: string]: string | ColorObject;
@@ -9,7 +24,7 @@ function renderColors(colors: ColorObject): string {
   return Object.entries(colors)
     .map(([key, value]) => {
       if (typeof value === "string") {
-        return html`<li
+        return `<li
           class="color"
           style="background-color: ${value}; border-color: ${value}"
         >
@@ -17,7 +32,7 @@ function renderColors(colors: ColorObject): string {
         </li>`;
       }
 
-      return html`<li>
+      return `<li>
         <p class="label">${key}</p>
         <ul>
           ${renderColors(value)}
@@ -27,8 +42,8 @@ function renderColors(colors: ColorObject): string {
     .join("\n");
 }
 
-async function getTheme(): Promise<string> {
-  return html`
+async function createTheme({ colors }: Theme): Promise<string> {
+  return `
     <!DOCTYPE html>
     <html lang="en">
       <head>
@@ -77,4 +92,3 @@ async function getTheme(): Promise<string> {
   `;
 }
 
-export default getTheme;

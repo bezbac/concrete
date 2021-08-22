@@ -1,6 +1,68 @@
-import colors from "../colors";
+import fs from "fs/promises";
+import path from "path";
+import { Theme } from "../../theme";
+import { ThemeGenerator } from "../../types";
+import { ensureDir } from "../../util/filesystem";
 
-function getTheme({ name }: { name: string }) {
+export const generate: ThemeGenerator = async ({
+  theme, baseResourceDirectory, outputDirectory
+}) => {
+  await Promise.all([
+    ensureDir(path.join(outputDirectory, `./${theme.metadata.filename}/themes`)),
+    ensureDir(path.join(outputDirectory, `./${theme.metadata.filename}/images`)),
+  ]).then(() =>
+    Promise.all([
+      fs.copyFile(path.join(baseResourceDirectory, "./icon.png"), path.join(outputDirectory, `./${theme.metadata.filename}/images/icon.png`)),
+
+      fs.writeFile(
+        path.join(outputDirectory, `./${theme.metadata.filename}/package.json`),
+        JSON.stringify(
+          {
+            "name": "concrete-vscode",
+            "displayName": `${theme.metadata.name}`,
+            "description": "A vibrant dark theme that blends into MacOS seamlessly.",
+            "version": "0.1.0",
+            "engines": {
+              "vscode": "^1.14.0"
+            },
+            "categories": [
+              "Themes"
+            ],
+            "contributes": {
+              "themes": [
+                {
+                  "label": `${theme.metadata.name}`,
+                  "uiTheme": "vs-dark",
+                  "path": `./themes/${theme.metadata.filename}.json`
+                }
+              ]
+            },
+            "homepage": "https://github.com/bezbac/concrete",
+            "repository": {
+              "type": "git",
+              "url": "https://github.com/bezbac/concrete"
+            },
+            "icon": "images/icon.png",
+            "license": "BSD-3-Clause"
+          },
+          null,
+          2
+        )
+      ),
+
+      fs.writeFile(
+        `./output/vscode/${theme.metadata.filename}/themes/concrete-dark.json`,
+        JSON.stringify(
+          createTheme(theme),
+          null,
+          2
+        )
+      ),
+    ])
+  );
+}
+
+function createTheme({ metadata: { name }, colors }: Theme) {
   const workbenchForeground = colors.base.text;
   const editorForeground = colors.base.text;
 
@@ -521,4 +583,3 @@ function getTheme({ name }: { name: string }) {
   };
 }
 
-export default getTheme;

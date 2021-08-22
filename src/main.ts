@@ -1,61 +1,33 @@
-import fs from "fs/promises";
-import getVsCodeTheme from "./vscode/theme";
-import getItermTheme from "./iterm/theme";
-import getPrismTheme from "./prism/theme";
-import getPaletteTheme from "./palette/theme";
+import path from "path";
+import theme from "./theme";
+import { generate as generateVscodeTheme } from "./templates/vscode";
+import { generate as generateITermTheme } from "./templates/iterm";
+import { generate as generatePrismTheme } from "./templates/prism";
+import { generate as generatePreviewTheme } from "./templates/preview";
 
-async function ensureDir(path: string) {
-  return fs.stat(path).catch(async (err) => {
-    if (err.message.includes("no such file or directory")) {
-      await fs.mkdir(path);
-    }
-  });
-}
+const baseOutputDirectory = path.resolve("./output/")
+const baseResourceDirectory = path.resolve("./resources/")
 
-Promise.all([
-  ensureDir("./output/vscode/themes"),
-  ensureDir("./output/vscode/images"),
-]).then(() =>
-  Promise.all([
-    fs.copyFile(
-      "./resources/vscode/package.json",
-      "./output/vscode/package.json"
-    ),
-    fs.copyFile("./resources/icon.png", "./output/vscode/images/icon.png"),
-    fs.writeFile(
-      "./output/vscode/themes/concrete-dark.json",
-      JSON.stringify(
-        getVsCodeTheme({
-          name: "Concrete",
-        }),
-        null,
-        2
-      )
-    ),
-  ])
-);
+generateVscodeTheme({
+  theme,
+  baseResourceDirectory,
+  outputDirectory: path.join(baseOutputDirectory, "vscode")
+})
 
-ensureDir("./output/iterm2/themes").then(() =>
-  Promise.all([
-    fs.writeFile(
-      "./output/iterm2/themes/concrete-dark.itermcolors",
-      getItermTheme()
-    ),
-  ])
-);
+generateITermTheme({
+  theme,
+  baseResourceDirectory,
+  outputDirectory: path.join(baseOutputDirectory, "iterm2")
+})
 
-ensureDir("./output/prism/themes").then(() =>
-  Promise.all([
-    getPrismTheme().then((output) =>
-      fs.writeFile("./output/prism/themes/concrete-dark.css", output)
-    ),
-  ])
-);
+generatePrismTheme({
+  theme,
+  baseResourceDirectory,
+  outputDirectory: path.join(baseOutputDirectory, "prism")
+})
 
-ensureDir("./output/palette/themes").then(() =>
-  Promise.all([
-    getPaletteTheme().then((output) =>
-      fs.writeFile("./output/palette/themes/concrete-dark.html", output)
-    ),
-  ])
-);
+generatePreviewTheme({
+  theme,
+  baseResourceDirectory,
+  outputDirectory: path.join(baseOutputDirectory, "preview")
+})

@@ -1,6 +1,21 @@
-import colors from "../colors";
+
 import Color from "color";
 import builder, { XMLElement } from "xmlbuilder";
+import { ThemeGenerator } from "../../types";
+import { ensureDir } from "../../util/filesystem";
+import path from "path";
+import fs from "fs/promises";
+import { Theme } from "../../theme";
+
+export const generate: ThemeGenerator = async ({
+  theme, outputDirectory
+}) => {
+  await ensureDir(outputDirectory)
+  await fs.writeFile(
+    path.join(outputDirectory, `./${theme.metadata.filename}.itermcolors`),
+    createTheme(theme)
+  )
+}
 
 function createItermColorElement(
   rootElement: XMLElement,
@@ -48,7 +63,7 @@ function getAnsiColorName(name: string, bright: boolean) {
   return "Ansi " + index + " Color";
 }
 
-function getTheme() {
+function createTheme({ colors }: Theme) {
   const root = builder.create("plist");
   root.attribute("version", "1.0");
 
@@ -156,4 +171,3 @@ function getTheme() {
   return root.end({ pretty: true });
 }
 
-export default getTheme;
