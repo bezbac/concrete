@@ -8,14 +8,23 @@
 
   </p>
 </p>
+<br />
 
-## Supported Applications
+<p align="center">
+  <img src="resources/preview.png" alt="Logo">
+</p>
 
-- Visual Studio Code
-- iterm2
+## Applications
 
-## Development
+| Application        | Support | Links |
+| ------------------ | ------- | ----- |
+| Visual Studio Code | ✅      |
+| iterm2             | ✅      |
+| prism              | 🚧      |
 
-### Building
+---
 
-In order to build the theme files, run `make build`, then copy the respective file from the generated `output` folder.
+Legend:
+
+- ✅ Supported
+- 🚧 Beta
