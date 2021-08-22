@@ -6,10 +6,13 @@ import path from "path";
 import fs from "fs/promises";
 import { Colors } from "../../colors";
 
-export const generate: ThemeGenerator = async ({ colors, outputDirectory }) => {
-  await ensureDir(outputDirectory);
+export const generate: ThemeGenerator = async ({
+  colors,
+  baseOutputDirectory,
+}) => {
+  await ensureDir(baseOutputDirectory);
   await fs.writeFile(
-    path.join(outputDirectory, `./concrete.itermcolors`),
+    path.join(baseOutputDirectory, `./concrete.itermcolors`),
     createTheme(colors)
   );
 };

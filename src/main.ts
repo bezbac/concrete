@@ -11,23 +11,23 @@ const baseResourceDirectory = path.resolve("./resources/");
 generateVscodeTheme({
   colors,
   baseResourceDirectory,
-  outputDirectory: path.join(baseOutputDirectory, "vscode"),
+  baseOutputDirectory,
 });
 
 generateITermTheme({
   colors,
   baseResourceDirectory,
-  outputDirectory: path.join(baseOutputDirectory, "iterm2"),
+  baseOutputDirectory,
 });
 
 generatePrismTheme({
   colors,
   baseResourceDirectory,
-  outputDirectory: path.join(baseOutputDirectory, "prism"),
+  baseOutputDirectory,
 });
 
 generatePreviewTheme({
   colors,
   baseResourceDirectory,
-  outputDirectory: path.join(baseOutputDirectory, "preview"),
+  baseOutputDirectory,
 });

@@ -4,11 +4,14 @@ import fs from "fs/promises";
 import path from "path";
 import { Colors } from "../../colors";
 
-export const generate: ThemeGenerator = async ({ colors, outputDirectory }) => {
-  await ensureDir(outputDirectory);
+export const generate: ThemeGenerator = async ({
+  colors,
+  baseOutputDirectory,
+}) => {
+  await ensureDir(baseOutputDirectory);
 
   fs.writeFile(
-    path.join(outputDirectory, `./concrete.html`),
+    path.join(baseOutputDirectory, `./preview.html`),
     await createTheme(colors)
   );
 };

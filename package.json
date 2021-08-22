@@ -1,12 +1,13 @@
 {
   "name": "concrete",
-  "version": "0.1.0",
+  "version": "0.0.1",
   "main": "index.js",
   "repository": "git@github.com:bezbac/concrete.git",
   "author": "Ben Bachem <10088265+bezbac@users.noreply.github.com>",
   "scripts": {
     "build": "ts-node src/main.ts",
     "lint": "eslint .",
+    "release": "release-it",
     "apply/vscode": "rm -rf ~/.vscode/extensions/bezbac.concrete-vscode-* && cp -R './output/vscode' ~/.vscode/extensions/bezbac.concrete-vscode-$npm_package_version"
   },
   "private": "true",
@@ -19,6 +20,7 @@
     "eslint": "^7.32.0",
     "eslint-config-prettier": "^8.3.0",
     "prettier": "^2.3.2",
+    "release-it": "^14.11.5",
     "ts-node": "^10.0.0",
     "typescript": "^4.3.5"
   },

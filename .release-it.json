@@ -1,0 +1,27 @@
+{
+  "hooks": {
+    "before:init": "yarn lint",
+    "after:bump": "yarn build",
+    "before:github:release": "zip -r output/vscode.zip output/vscode/*",
+    "after:release": "echo Successfully released v${version}."
+  },
+  "git": {
+    "tag": true,
+    "commitMessage": "chore: release v${version}",
+    "changelog": "npx auto-changelog --stdout --commit-limit false -u --template https://raw.githubusercontent.com/release-it/release-it/master/templates/changelog-compact.hbs"
+  },
+  "github": {
+    "release": true,
+    "web": true,
+    "assets": [
+      "output/*.zip",
+      "output/*.html",
+      "output/*.css",
+      "output/*.itermcolors",
+      "output/*.vsix"
+    ]
+  },
+  "npm": {
+    "publish": false
+  }
+}

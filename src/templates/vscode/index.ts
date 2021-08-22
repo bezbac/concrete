@@ -7,8 +7,10 @@ import { ensureDir } from "../../util/filesystem";
 export const generate: ThemeGenerator = async ({
   colors,
   baseResourceDirectory,
-  outputDirectory,
+  baseOutputDirectory,
 }) => {
+  const outputDirectory = path.join(baseOutputDirectory, "vscode");
+
   await Promise.all([
     ensureDir(path.join(outputDirectory, `./themes`)),
     ensureDir(path.join(outputDirectory, `./images`)),
@@ -41,6 +43,7 @@ export const generate: ThemeGenerator = async ({
                 },
               ],
             },
+            publisher: "bezbac",
             author: "Ben Bachem <10088265+bezbac@users.noreply.github.com>",
             homepage: "https://github.com/bezbac/concrete",
             repository: {
@@ -56,7 +59,7 @@ export const generate: ThemeGenerator = async ({
       ),
 
       fs.writeFile(
-        `./output/vscode/themes/concrete-dark.json`,
+        `./output/vscode/themes/concrete.json`,
         JSON.stringify(createTheme(colors), null, 2)
       ),
     ])
