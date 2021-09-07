@@ -1,14 +1,14 @@
 const COLORS = {
-  base: {
-    black: "#131313",
-    lowered: "#202020",
-    background: "#262626",
-    elevated: "#313031",
-    muted: "#4f4e4f",
-    lush: "#586069",
-    soft: "#959da5",
-    text: "#d1d5da",
-    sharp: "#fff",
+  neutral: {
+    "75": "#131313",
+    "125": "#202020",
+    "150": "#262626",
+    "190": "#313031",
+    "310": "#4f4e4f",
+    "380": "#586069",
+    "620": "#959da5",
+    "840": "#d1d5da",
+    "1000": "#fff",
   },
   syntax: {
     string: "#9ecbff",

@@ -3,7 +3,7 @@
 */
 pre[class*="language-"],
 code[class*="language-"] {
-  color: {{ base.text }};
+  color: {{ neutral[840] }};
   text-shadow: none;
   font-family: Consolas, Monaco, "Andale Mono", "Ubuntu Mono", monospace;
   direction: ltr;
@@ -37,13 +37,13 @@ pre[class*="language-"] {
   padding: 1em;
   margin: 0.5em 0;
   overflow: auto;
-  background: {{ base.background }};
+  background: {{ neutral[150] }};
 }
 :not(pre) > code[class*="language-"] {
   padding: 0.1em 0.3em;
   border-radius: 0.3em;
   color: {{ syntax.entity }};
-  background: {{ base.sharp }};
+  background: {{ neutral[1000] }};
 }
 
 /*********************************************************
@@ -130,7 +130,7 @@ pre[class*="language-"] > code[class*="language-"] {
   right: 0;
   padding: inherit 0;
   margin-top: 1em;
-  background: {{ base.elevated }};
+  background: {{ neutral[190] }};
   box-shadow: inset 5px 0 0 {{ accent }};
   z-index: 0;
   pointer-events: none;

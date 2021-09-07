@@ -70,25 +70,25 @@ function createTheme(colors: Colors) {
   const dict = root.ele("dict");
 
   createItermColorElement(dict, "Selection Color", colors.background.selection);
-  createItermColorElement(dict, "Selected Text Color", colors.base.sharp);
+  createItermColorElement(dict, "Selected Text Color", colors.neutral[1000]);
   createItermColorElement(dict, "Link Color", colors.accent);
-  createItermColorElement(dict, "Foreground Color", colors.base.soft);
-  createItermColorElement(dict, "Cursor Text Color", colors.base.soft);
-  createItermColorElement(dict, "Cursor Guide Color", colors.base.soft);
-  createItermColorElement(dict, "Cursor Color", colors.base.soft);
-  createItermColorElement(dict, "Bold Color", colors.base.sharp);
+  createItermColorElement(dict, "Foreground Color", colors.neutral[620]);
+  createItermColorElement(dict, "Cursor Text Color", colors.neutral[620]);
+  createItermColorElement(dict, "Cursor Guide Color", colors.neutral[620]);
+  createItermColorElement(dict, "Cursor Color", colors.neutral[620]);
+  createItermColorElement(dict, "Bold Color", colors.neutral[1000]);
   createItermColorElement(dict, "Badge Color", colors.background.badge);
-  createItermColorElement(dict, "Background Color", colors.base.background);
+  createItermColorElement(dict, "Background Color", colors.neutral[150]);
 
   createItermColorElement(
     dict,
     getAnsiColorName("Black", false),
-    colors.base.elevated
+    colors.neutral[190]
   );
   createItermColorElement(
     dict,
     getAnsiColorName("Black", true),
-    colors.base.muted
+    colors.neutral[310]
   );
 
   createItermColorElement(
@@ -160,12 +160,12 @@ function createTheme(colors: Colors) {
   createItermColorElement(
     dict,
     getAnsiColorName("White", false),
-    colors.base.text
+    colors.neutral[840]
   );
   createItermColorElement(
     dict,
     getAnsiColorName("White", true),
-    colors.base.sharp
+    colors.neutral[1000]
   );
 
   return root.end({ pretty: true });
