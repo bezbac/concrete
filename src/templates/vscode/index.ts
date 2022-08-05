@@ -198,6 +198,9 @@ function createTheme(colors: Colors) {
       "editorWhitespace.foreground": colors.neutral[310],
       "editorCursor.foreground": colors.neutral[1000],
 
+      "editorInlayHint.foreground": colors.neutral[380],
+      "editorInlayHint.background": colors.neutral[190],
+
       "editor.findMatchBackground": colors.background.findMatch,
       "editor.findMatchHighlightBackground":
         colors.background.findMatchHighlight,
