@@ -4,6 +4,7 @@ import { generate as generateVscodeTheme } from "./templates/vscode";
 import { generate as generateITermTheme } from "./templates/iterm";
 import { generate as generatePrismTheme } from "./templates/prism";
 import { generate as generatePreviewTheme } from "./templates/preview";
+import { generate as generateHelixTheme } from "./templates/helix";
 
 const baseOutputDirectory = path.resolve("./output/");
 const baseResourceDirectory = path.resolve("./resources/");
@@ -27,6 +28,12 @@ generatePrismTheme({
 });
 
 generatePreviewTheme({
+  colors,
+  baseResourceDirectory,
+  baseOutputDirectory,
+});
+
+generateHelixTheme({
   colors,
   baseResourceDirectory,
   baseOutputDirectory,

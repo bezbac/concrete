@@ -19,6 +19,7 @@ const COLORS = {
     comment: "#6a737d",
     variable: "#f1993b",
     support: "#4091c9",
+    punctuation: "#F9D849",
   },
   semantic: {
     error: "#e54468",

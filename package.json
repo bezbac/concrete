@@ -9,7 +9,8 @@
     "build": "ts-node src/main.ts",
     "lint": "eslint .",
     "release": "release-it",
-    "apply/vscode": "rm -rf ~/.vscode/extensions/bezbac.concrete-vscode-* && cp -R './output/vscode' ~/.vscode/extensions/bezbac.concrete-vscode-$npm_package_version"
+    "apply/vscode": "rm -rf ~/.vscode/extensions/bezbac.concrete-vscode-* && cp -R './output/vscode' ~/.vscode/extensions/bezbac.concrete-vscode-$npm_package_version",
+    "apply/helix": "mkdir -p ~/.config/helix/themes/ && cp -R './output/helix/concrete.toml' ~/.config/helix/themes/concrete.toml"
   },
   "private": "true",
   "devDependencies": {
