@@ -70,5 +70,31 @@ const COLORS = {
   transparent: "#00000000",
 };
 
-export type Colors = typeof COLORS;
-export default COLORS;
+const EXTENDED_COLORS = {
+  ...COLORS,
+  ansi: {
+    normal: {
+      white: COLORS.neutral[840],
+      black: COLORS.neutral[190],
+      blue: COLORS.syntax.support,
+      cyan: COLORS.syntax.string,
+      green: COLORS.syntax.regexp,
+      red: COLORS.syntax.deleted,
+      magenta: COLORS.syntax.entity,
+      yellow: COLORS.syntax.variable,
+    },
+    bright: {
+      white: COLORS.neutral[1000],
+      black: COLORS.neutral[310],
+      blue: COLORS.syntax.support,
+      cyan: COLORS.syntax.string,
+      green: COLORS.syntax.regexp,
+      red: COLORS.syntax.deleted,
+      magenta: COLORS.syntax.entity,
+      yellow: COLORS.syntax.variable,
+    },
+  },
+};
+
+export type Colors = typeof EXTENDED_COLORS;
+export default EXTENDED_COLORS;

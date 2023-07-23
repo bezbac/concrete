@@ -83,89 +83,89 @@ function createTheme(colors: Colors) {
   createItermColorElement(
     dict,
     getAnsiColorName("Black", false),
-    colors.neutral[190]
+    colors.ansi.normal.black
   );
   createItermColorElement(
     dict,
     getAnsiColorName("Black", true),
-    colors.neutral[310]
+    colors.ansi.bright.black
   );
 
   createItermColorElement(
     dict,
     getAnsiColorName("Red", false),
-    colors.syntax.deleted
+    colors.ansi.normal.red
   );
   createItermColorElement(
     dict,
     getAnsiColorName("Red", true),
-    colors.syntax.deleted
+    colors.ansi.bright.red
   );
 
   createItermColorElement(
     dict,
     getAnsiColorName("Green", false),
-    colors.syntax.regexp
+    colors.ansi.normal.green
   );
   createItermColorElement(
     dict,
     getAnsiColorName("Green", true),
-    colors.syntax.regexp
+    colors.ansi.bright.green
   );
 
   createItermColorElement(
     dict,
     getAnsiColorName("Yellow", false),
-    colors.syntax.variable
+    colors.ansi.normal.yellow
   );
   createItermColorElement(
     dict,
     getAnsiColorName("Yellow", true),
-    colors.syntax.variable
+    colors.ansi.bright.yellow
   );
 
   createItermColorElement(
     dict,
     getAnsiColorName("Blue", false),
-    colors.syntax.support
+    colors.ansi.normal.blue
   );
   createItermColorElement(
     dict,
     getAnsiColorName("Blue", true),
-    colors.syntax.support
+    colors.ansi.bright.blue
   );
 
   createItermColorElement(
     dict,
     getAnsiColorName("Magenta", false),
-    colors.syntax.entity
+    colors.ansi.normal.magenta
   );
   createItermColorElement(
     dict,
     getAnsiColorName("Magenta", true),
-    colors.syntax.entity
+    colors.ansi.bright.magenta
   );
 
   createItermColorElement(
     dict,
     getAnsiColorName("Cyan", false),
-    colors.syntax.string
+    colors.ansi.normal.cyan
   );
   createItermColorElement(
     dict,
     getAnsiColorName("Cyan", true),
-    colors.syntax.string
+    colors.ansi.bright.cyan
   );
 
   createItermColorElement(
     dict,
     getAnsiColorName("White", false),
-    colors.neutral[840]
+    colors.ansi.normal.white
   );
   createItermColorElement(
     dict,
     getAnsiColorName("White", true),
-    colors.neutral[1000]
+    colors.ansi.bright.white
   );
 
   return root.end({ pretty: true });
