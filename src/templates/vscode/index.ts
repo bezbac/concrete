@@ -236,6 +236,22 @@ function createTheme(colors: Colors) {
       "panelInput.border": colors.neutral[190],
 
       "terminal.foreground": colors.neutral[840],
+      "terminal.ansiWhite": colors.neutral[840],
+      "terminal.ansiBrightWhite": colors.neutral[1000],
+      "terminal.ansiBlack": colors.neutral[190],
+      "terminal.ansiBrightBlack": colors.neutral[310],
+      "terminal.ansiBlue": colors.syntax.support,
+      "terminal.ansiBrightBlue": colors.syntax.support,
+      "terminal.ansiCyan": colors.syntax.string,
+      "terminal.ansiBrightCyan": colors.syntax.string,
+      "terminal.ansiGreen": colors.syntax.regexp,
+      "terminal.ansiBrightGreen": colors.syntax.regexp,
+      "terminal.ansiRed": colors.syntax.deleted,
+      "terminal.ansiBrightRed": colors.syntax.deleted,
+      "terminal.ansiMagenta": colors.syntax.entity,
+      "terminal.ansiBrightMagenta": colors.syntax.entity,
+      "terminal.ansiYellow": colors.syntax.variable,
+      "terminal.ansiBrightYellow": colors.syntax.variable,
 
       "gitDecoration.addedResourceForeground": colors.semantic.addedResource,
       "gitDecoration.modifiedResourceForeground":
