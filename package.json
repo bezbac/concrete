@@ -5,6 +5,7 @@
   "repository": "git@github.com:bezbac/concrete.git",
   "author": "Ben Bachem <10088265+bezbac@users.noreply.github.com>",
   "scripts": {
+    "format": "prettier --write .",
     "preinstall": "npx only-allow pnpm",
     "build": "ts-node src/main.ts",
     "lint": "eslint .",
