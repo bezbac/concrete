@@ -1,6 +1,6 @@
 {
   "name": "concrete",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "main": "index.js",
   "repository": "git@github.com:bezbac/concrete.git",
   "author": "Ben Bachem <10088265+bezbac@users.noreply.github.com>",
