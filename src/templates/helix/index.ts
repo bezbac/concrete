@@ -46,7 +46,7 @@ const createTheme = (colors: Colors) => {
 "diff.delta" = "${colors.semantic.modifiedResource}"
 "diff.minus" = "${colors.semantic.deletedResource}"
 
-"ui.background" = { bg = "${colors.neutral[150]}" }
+"ui.background" = { bg = "${colors.neutral[125]}" }
 "ui.background.separator" = "${colors.neutral[75]}"
 "ui.cursor" = { fg = "${colors.neutral[75]}", bg = "${colors.neutral[620]}" }
 "ui.cursor.insert" = { bg = "${colors.semantic.addedResource}", fg = "${colors.neutral[1000]}" }
