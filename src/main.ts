@@ -6,6 +6,7 @@ import { generate as generatePrismTheme } from "./templates/prism";
 import { generate as generatePreviewTheme } from "./templates/preview";
 import { generate as generateHelixTheme } from "./templates/helix";
 import { generate as generateZellijTheme } from "./templates/zellij";
+import { generate as generateAlacrittyTheme } from "./templates/alacritty";
 
 const baseOutputDirectory = path.resolve("./output/");
 const baseResourceDirectory = path.resolve("./resources/");
@@ -41,6 +42,12 @@ generateHelixTheme({
 });
 
 generateZellijTheme({
+  colors,
+  baseResourceDirectory,
+  baseOutputDirectory,
+});
+
+generateAlacrittyTheme({
   colors,
   baseResourceDirectory,
   baseOutputDirectory,
