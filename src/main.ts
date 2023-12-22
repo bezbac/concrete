@@ -5,6 +5,7 @@ import { generate as generateITermTheme } from "./templates/iterm";
 import { generate as generatePrismTheme } from "./templates/prism";
 import { generate as generatePreviewTheme } from "./templates/preview";
 import { generate as generateHelixTheme } from "./templates/helix";
+import { generate as generateZellijTheme } from "./templates/zellij";
 
 const baseOutputDirectory = path.resolve("./output/");
 const baseResourceDirectory = path.resolve("./resources/");
@@ -34,6 +35,12 @@ generatePreviewTheme({
 });
 
 generateHelixTheme({
+  colors,
+  baseResourceDirectory,
+  baseOutputDirectory,
+});
+
+generateZellijTheme({
   colors,
   baseResourceDirectory,
   baseOutputDirectory,
