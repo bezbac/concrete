@@ -31,7 +31,7 @@ Legend:
 
 ## Create a new release
 
-`yarn release`
+`pnpm release`
 
 ### Release vscode extension
 
