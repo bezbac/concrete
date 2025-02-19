@@ -1,16 +1,16 @@
 <!-- Plugin Configuration File. Read more: https://plugins.jetbrains.com/docs/intellij/plugin-configuration-file.html -->
 <idea-plugin>
     <!-- Unique identifier of the plugin. It should be FQN. It cannot be changed between the plugin versions. -->
-    <id>demo-intellij-theme</id>
-    <version>1.0.0</version>
+    <id>concrete-theme</id>
+    <version>0.5.0</version>
 
     <!-- Public plugin name should be written in Title Case.
          Guidelines: https://plugins.jetbrains.com/docs/marketplace/plugin-overview-page.html#plugin-name -->
-    <name>Demo-intellij-theme</name>
+    <name>Concrete Theme</name>
     <category>UI</category>
 
     <!-- A displayed Vendor name or Organization ID displayed on the Plugins Page. -->
-    <vendor email="support@yourcompany.com" url="https://www.yourcompany.com">YourCompany</vendor>
+    <vendor email="10088265+bezbac@users.noreply.github.com" url="https://github.com/bezbac">bezbac</vendor>
 
     <idea-version since-build="232" until-build="242.*"/>
 
@@ -18,8 +18,7 @@
          Simple HTML elements (text formatting, paragraphs, and lists) can be added inside of <![CDATA[ ]]> tag.
          Guidelines: https://plugins.jetbrains.com/docs/marketplace/plugin-overview-page.html#plugin-description -->
     <description><![CDATA[
-    Enter short description for your theme here.<br>
-    <em>most HTML tags may be used</em>
+    A vibrant dark theme that blends into MacOS seamlessly
   ]]></description>
 
     <!-- Short summary of new features and bugfixes in the latest plugin version.

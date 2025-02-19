@@ -24,6 +24,7 @@
 | alacritty          | ✅      | Terminal    | [Link](https://alacritty.org)                                                                                                    |
 | wezterm            | ✅      | Terminal    | [Link](https://wezfurlong.org/wezterm/index.html)                                                                                |
 | zellij             | ✅      | Multiplexer | [Link](https://zellij.dev)                                                                                                       |
+| intelliJ IDEA      | 🚧      | IDE         | [Link](https://www.jetbrains.com/idea/)                                                                                          |
 | prism              | 🚧      | Library     | [Link](https://prismjs.com)                                                                                                      |
 
 [Suggest your favourite application.](https://github.com/bezbac/concrete/issues)
@@ -34,13 +35,3 @@ Legend:
 
 - ✅ Supported
 - 🚧 Beta
-
-## Create a new release
-
-`pnpm release`
-
-### Release vscode extension
-
-`cd output/vscode`  
-`vsce package`  
-`vsce publish`
