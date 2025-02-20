@@ -32,6 +32,6 @@
     <depends>com.intellij.modules.platform</depends>
 
     <extensions defaultExtensionNs="com.intellij">
-        <themeProvider id="concrete-theme" path="/theme/concrete.theme.json"/>
+        <themeProvider id="concrete-theme" path="/concrete.theme.json"/>
     </extensions>
 </idea-plugin>
