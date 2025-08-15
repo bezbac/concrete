@@ -8,7 +8,7 @@ const COLORS = {
     "380": "#586069",
     "620": "#959da5",
     "840": "#d1d5da",
-    "1000": "#fff",
+    "1000": "#ffffff",
   },
   syntax: {
     string: "#9ecbff",
