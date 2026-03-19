@@ -19,6 +19,7 @@
 | Application        | Support | Category    | Links                                                                                                                            |
 | ------------------ | ------- | ----------- | -------------------------------------------------------------------------------------------------------------------------------- |
 | Visual Studio Code | ✅      | Editor      | [Link](https://code.visualstudio.com), [Marketplace](https://marketplace.visualstudio.com/items?itemName=bezbac.concrete-vscode) |
+| Zed                | ✅      | Editor      | [Link](https://zed.dev)                                                                                                          |
 | helix              | ✅      | Editor      | [Link](https://helix-editor.com)                                                                                                 |
 | iterm2             | ✅      | Terminal    | [Link](https://iterm2.com)                                                                                                       |
 | alacritty          | ✅      | Terminal    | [Link](https://alacritty.org)                                                                                                    |

@@ -13,7 +13,8 @@
     "apply/vscode": "rm -rf ~/.vscode/extensions/bezbac.concrete-vscode-* && cp -R './output/vscode' ~/.vscode/extensions/bezbac.concrete-vscode-$npm_package_version",
     "apply/helix": "mkdir -p ~/.config/helix/themes/ && cp -R './output/helix/concrete.toml' ~/.config/helix/themes/concrete.toml",
     "apply/zellij": "mkdir -p ~/.config/zellij/themes/ && cp -R './output/zellij/concrete.kdl' ~/.config/zellij/themes/concrete.kdl",
-    "apply/alacritty": "mkdir -p ~/.config/alacritty/themes/ && cp -R './output/alacritty/concrete.yaml' ~/.config/alacritty/themes/concrete.yaml"
+    "apply/alacritty": "mkdir -p ~/.config/alacritty/themes/ && cp -R './output/alacritty/concrete.yaml' ~/.config/alacritty/themes/concrete.yaml",
+    "apply/zed": "mkdir -p ~/.config/zed/themes/ && cp -R './output/zed/themes/concrete.json' ~/.config/zed/themes/concrete.json"
   },
   "private": "true",
   "devDependencies": {
