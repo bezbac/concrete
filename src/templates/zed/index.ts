@@ -57,8 +57,8 @@ function createTheme(colors: Colors) {
           background: Color(colors.neutral[125]).hex(),
           "background.appearance": "opaque",
 
-          text: Color(colors.neutral[840]).hex(),
-          "text.muted": Color(colors.neutral[620]).hex(),
+          text: Color(colors.neutral[920]).hex(),
+          "text.muted": Color(colors.neutral[840]).hex(),
 
           border: Color(colors.neutral[75]).hex(),
           "border.variant": Color(colors.neutral[75]).hex(),
