@@ -69,16 +69,16 @@ function createTheme(colors: Colors) {
 
           "scrollbar.thumb.background": Color(
             colors.background.scrollbar.base
-          ).hex(),
+          ).hexa(),
           "scrollbar.thumb.hover_background": Color(
             colors.background.scrollbar.hover
-          ).hex(),
+          ).hexa(),
           "scrollbar.thumb.active_background": Color(
             colors.background.scrollbar.active
-          ).hex(),
+          ).hexa(),
           "scrollbar.thumb.border": Color(
             colors.background.scrollbar.base
-          ).hex(),
+          ).hexa(),
           "scrollbar.track.background": Color(colors.neutral[150]).hex(),
           "scrollbar.track.border": Color(colors.neutral[75]).hex(),
 
@@ -209,7 +209,7 @@ function createTheme(colors: Colors) {
           "ghost_element.hover": Color(colors.neutral[125]).hex(),
           "ghost_element.selected": Color(colors.neutral[150]).hex(),
 
-          "search.match_background": Color(colors.background.findMatch).hex(),
+          "search.match_background": Color(colors.background.findMatch).hexa(),
 
           "pane_group.border": Color(colors.neutral[75]).hex(),
 
