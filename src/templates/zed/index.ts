@@ -70,8 +70,8 @@ function createTheme(colors: Colors) {
           text: Color(colors.neutral[920]).hex(),
           "text.muted": Color(colors.neutral[840]).hex(),
 
-          border: Color(colors.neutral[75]).hex(),
-          "border.variant": Color(colors.neutral[75]).hex(),
+          border: Color(colors.neutral[190]).hex(),
+          "border.variant": Color(colors.neutral[150]).hex(),
           "border.focused": Color(colors.transparent).hex(),
           "border.selected": Color(colors.neutral[75]).hex(),
           "border.transparent": Color(colors.neutral[75]).hex(),
@@ -223,7 +223,7 @@ function createTheme(colors: Colors) {
 
           "search.match_background": toHexa(colors.background.findMatch),
 
-          "pane_group.border": Color(colors.neutral[75]).hex(),
+          "pane_group.border": Color(colors.neutral[190]).hex(),
 
           accents: [],
 
