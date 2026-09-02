@@ -102,8 +102,12 @@ function createTheme(colors: Colors) {
             colors.neutral[380]
           ).hex(),
 
-          "terminal.ansi.black": Color(colors.ansi.normal.black).hex(),
-          "terminal.ansi.bright_black": Color(colors.ansi.bright.black).hex(),
+          "terminal.background": Color(colors.neutral[125]).hex(),
+          "terminal.foreground": Color(colors.neutral[620]).hex(),
+          "terminal.bright_foreground": Color(colors.neutral[840]).hex(),
+          "terminal.dim_foreground": Color(colors.neutral[380]).hex(),
+          "terminal.ansi.black": Color(colors.ansi.normal.white).hex(),
+          "terminal.ansi.bright_black": Color(colors.neutral[380]).hex(),
           "terminal.ansi.red": Color(colors.ansi.normal.red).hex(),
           "terminal.ansi.bright_red": Color(colors.ansi.bright.red).hex(),
           "terminal.ansi.green": Color(colors.ansi.normal.green).hex(),
@@ -118,8 +122,8 @@ function createTheme(colors: Colors) {
           ).hex(),
           "terminal.ansi.cyan": Color(colors.ansi.normal.cyan).hex(),
           "terminal.ansi.bright_cyan": Color(colors.ansi.bright.cyan).hex(),
-          "terminal.ansi.white": Color(colors.ansi.normal.white).hex(),
-          "terminal.ansi.bright_white": Color(colors.ansi.bright.white).hex(),
+          "terminal.ansi.white": Color(colors.ansi.normal.black).hex(),
+          "terminal.ansi.bright_white": Color(colors.ansi.bright.black).hex(),
 
           conflict: Color(colors.semantic.conflictingResource).hex(),
           created: Color(colors.gutter.added).hex(),
