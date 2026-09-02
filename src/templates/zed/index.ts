@@ -39,6 +39,16 @@ repository = "https://github.com/bezbac/concrete"
   `.trim();
 }
 
+function toHexa(value: string) {
+  const color = Color(value);
+  const alpha = Math.round(color.alpha() * 255)
+    .toString(16)
+    .padStart(2, "0")
+    .toUpperCase();
+
+  return `${color.hex()}${alpha}`;
+}
+
 function createTheme(colors: Colors) {
   const selectionBgWithoutAlpha = Color(colors.neutral[150])
     .mix(Color(colors.background.selection))
@@ -67,18 +77,16 @@ function createTheme(colors: Colors) {
           "border.transparent": Color(colors.neutral[75]).hex(),
           "border.disabled": Color(colors.neutral[75]).hex(),
 
-          "scrollbar.thumb.background": Color(
+          "scrollbar.thumb.background": toHexa(
             colors.background.scrollbar.base
-          ).hexa(),
-          "scrollbar.thumb.hover_background": Color(
+          ),
+          "scrollbar.thumb.hover_background": toHexa(
             colors.background.scrollbar.hover
-          ).hexa(),
-          "scrollbar.thumb.active_background": Color(
+          ),
+          "scrollbar.thumb.active_background": toHexa(
             colors.background.scrollbar.active
-          ).hexa(),
-          "scrollbar.thumb.border": Color(
-            colors.background.scrollbar.base
-          ).hexa(),
+          ),
+          "scrollbar.thumb.border": toHexa(colors.background.scrollbar.base),
           "scrollbar.track.background": Color(colors.neutral[150]).hex(),
           "scrollbar.track.border": Color(colors.neutral[75]).hex(),
 
@@ -209,7 +217,7 @@ function createTheme(colors: Colors) {
           "ghost_element.hover": Color(colors.neutral[125]).hex(),
           "ghost_element.selected": Color(colors.neutral[150]).hex(),
 
-          "search.match_background": Color(colors.background.findMatch).hexa(),
+          "search.match_background": toHexa(colors.background.findMatch),
 
           "pane_group.border": Color(colors.neutral[75]).hex(),
 
