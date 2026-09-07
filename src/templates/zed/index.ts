@@ -69,6 +69,7 @@ function createTheme(colors: Colors) {
 
           text: Color(colors.neutral[920]).hex(),
           "text.muted": Color(colors.neutral[840]).hex(),
+          "text.accent": Color(colors.syntax.string).hex(),
 
           border: Color(colors.neutral[190]).hex(),
           "border.variant": Color(colors.neutral[150]).hex(),
@@ -132,6 +133,10 @@ function createTheme(colors: Colors) {
 
           error: Color(colors.semantic.lintError).hex(),
           info: Color(colors.semantic.lintInfo).hex(),
+          "info.background": toHexa(
+            Color(colors.accent).alpha(0.1).string()
+          ),
+          "info.border": Color(colors.background.badge).hex(),
           warning: Color(colors.semantic.lintWarning).hex(),
 
           syntax: {
