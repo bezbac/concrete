@@ -132,12 +132,22 @@ function createTheme(colors: Colors) {
           modified: Color(colors.gutter.modified).hex(),
 
           error: Color(colors.semantic.lintError).hex(),
+          "error.background": toHexa(
+            Color(colors.semantic.lintError).alpha(0.15).string()
+          ),
           info: Color(colors.semantic.lintInfo).hex(),
           "info.background": toHexa(
             Color(colors.accent).alpha(0.1).string()
           ),
           "info.border": Color(colors.background.badge).hex(),
           warning: Color(colors.semantic.lintWarning).hex(),
+          "warning.background": toHexa(
+            Color(colors.semantic.lintWarning).alpha(0.15).string()
+          ),
+          hint: Color(colors.neutral[380]).hex(),
+          "hint.background": toHexa(
+            Color(colors.syntax.comment).alpha(0.25).string()
+          ),
 
           syntax: {
             comment: {
@@ -235,7 +245,6 @@ function createTheme(colors: Colors) {
           "link_text.hover": Color(colors.neutral[1000]).hex(),
 
           hidden: Color(colors.neutral[620]).hex(),
-          hint: Color(colors.neutral[380]).hex(),
           ignored: Color(colors.syntax.comment).hex(),
 
           players: [
