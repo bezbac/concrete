@@ -3,6 +3,7 @@ import path from "path";
 import { Colors } from "../../colors";
 import { ThemeGenerator } from "../../types";
 import { ensureDir } from "../../util/filesystem";
+import { ThemeFamilyContent } from "./theme";
 import Color from "color";
 
 export const generate: ThemeGenerator = async ({
@@ -49,7 +50,9 @@ function toHexa(value: string) {
   return `${color.hex()}${alpha}`;
 }
 
-function createTheme(colors: Colors) {
+function createTheme(
+  colors: Colors
+): ThemeFamilyContent & { $schema?: string } {
   const selectionBgWithoutAlpha = Color(colors.neutral[150])
     .mix(Color(colors.background.selection))
     .lighten(0.1)
@@ -83,9 +86,6 @@ function createTheme(colors: Colors) {
           ),
           "scrollbar.thumb.hover_background": toHexa(
             colors.background.scrollbar.hover
-          ),
-          "scrollbar.thumb.active_background": toHexa(
-            colors.background.scrollbar.active
           ),
           "scrollbar.thumb.border": toHexa(colors.background.scrollbar.base),
           "scrollbar.track.background": Color(colors.neutral[150]).hex(),
