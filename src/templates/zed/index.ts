@@ -76,7 +76,7 @@ function createTheme(
 
           border: Color(colors.neutral[190]).hex(),
           "border.variant": Color(colors.neutral[150]).hex(),
-          "border.focused": Color(colors.transparent).hex(),
+          "border.focused": Color(colors.accent).hex(),
           "border.selected": Color(colors.neutral[75]).hex(),
           "border.transparent": Color(colors.neutral[75]).hex(),
           "border.disabled": Color(colors.neutral[75]).hex(),
@@ -95,10 +95,17 @@ function createTheme(
           "editor.background": Color(colors.neutral[150]).hex(),
           "editor.gutter.background": Color(colors.neutral[150]).hex(),
           "editor.active_line.background": Color(colors.neutral[190]).hex(),
+          "editor.highlighted_line.background": Color(
+            colors.neutral[190]
+          ).hex(),
           "editor.line_number": Color(colors.neutral[310]).hex(),
           "editor.active_line_number": Color(colors.neutral[840]).hex(),
           "editor.wrap_guide": Color(colors.neutral[75]).hex(),
-          "editor.active_wrap_guide": Color(colors.neutral[75]).hex(),
+          "editor.active_wrap_guide": Color(colors.neutral[150]).hex(),
+          "editor.indent_guide": Color(colors.neutral[190]).hex(),
+          "editor.indent_guide_active": Color(colors.neutral[310]).hex(),
+          "editor.invisible": Color(colors.neutral[310]).hex(),
+          "editor.subheader.background": Color(colors.neutral[125]).hex(),
           "editor.document_highlight.bracket_background": Color(
             colors.neutral[380]
           ).hex(),
@@ -107,8 +114,8 @@ function createTheme(
           "terminal.foreground": Color(colors.neutral[620]).hex(),
           "terminal.bright_foreground": Color(colors.neutral[840]).hex(),
           "terminal.dim_foreground": Color(colors.neutral[380]).hex(),
-          "terminal.ansi.black": Color(colors.ansi.normal.white).hex(),
-          "terminal.ansi.bright_black": Color(colors.neutral[380]).hex(),
+          "terminal.ansi.black": Color(colors.neutral[840]).hex(),
+          "terminal.ansi.bright_black": Color(colors.neutral[920]).hex(),
           "terminal.ansi.red": Color(colors.ansi.normal.red).hex(),
           "terminal.ansi.bright_red": Color(colors.ansi.bright.red).hex(),
           "terminal.ansi.green": Color(colors.ansi.normal.green).hex(),
@@ -123,22 +130,49 @@ function createTheme(
           ).hex(),
           "terminal.ansi.cyan": Color(colors.ansi.normal.cyan).hex(),
           "terminal.ansi.bright_cyan": Color(colors.ansi.bright.cyan).hex(),
-          "terminal.ansi.white": Color(colors.ansi.normal.black).hex(),
-          "terminal.ansi.bright_white": Color(colors.ansi.bright.black).hex(),
+          "terminal.ansi.white": Color(colors.neutral[190]).hex(),
+          "terminal.ansi.bright_white": Color(colors.neutral[310]).hex(),
+          "terminal.ansi.background": Color(colors.neutral[125]).hex(),
+          "terminal.ansi.dim_black": Color(colors.neutral[75]).hex(),
+          "terminal.ansi.dim_red": Color(colors.neutral[310]).hex(),
+          "terminal.ansi.dim_green": Color(colors.neutral[310]).hex(),
+          "terminal.ansi.dim_yellow": Color(colors.neutral[310]).hex(),
+          "terminal.ansi.dim_blue": Color(colors.neutral[310]).hex(),
+          "terminal.ansi.dim_magenta": Color(colors.neutral[310]).hex(),
+          "terminal.ansi.dim_cyan": Color(colors.neutral[310]).hex(),
+          "terminal.ansi.dim_white": Color(colors.neutral[190]).hex(),
 
           conflict: Color(colors.semantic.conflictingResource).hex(),
+          "conflict.background": toHexa(
+            Color(colors.semantic.conflictingResource).alpha(0.15).string()
+          ),
+          "conflict.border": Color(colors.semantic.conflictingResource).hex(),
           created: Color(colors.gutter.added).hex(),
+          "created.background": toHexa(colors.background.addedDiff),
+          "created.border": Color(colors.gutter.added).hex(),
           deleted: Color(colors.gutter.deleted).hex(),
+          "deleted.background": toHexa(colors.background.removedDiff),
+          "deleted.border": Color(colors.gutter.deleted).hex(),
           modified: Color(colors.gutter.modified).hex(),
+          "modified.background": toHexa(
+            Color(colors.gutter.modified).alpha(0.15).string()
+          ),
+          "modified.border": Color(colors.gutter.modified).hex(),
+          renamed: Color(colors.syntax.string).hex(),
+          "renamed.background": toHexa(
+            Color(colors.syntax.string).alpha(0.15).string()
+          ),
+          "renamed.border": Color(colors.syntax.string).hex(),
+          success: Color(colors.gutter.added).hex(),
+          "success.background": toHexa(colors.background.addedDiff),
+          "success.border": Color(colors.gutter.added).hex(),
 
           error: Color(colors.semantic.lintError).hex(),
           "error.background": toHexa(
             Color(colors.semantic.lintError).alpha(0.15).string()
           ),
           info: Color(colors.semantic.lintInfo).hex(),
-          "info.background": toHexa(
-            Color(colors.accent).alpha(0.1).string()
-          ),
+          "info.background": toHexa(Color(colors.accent).alpha(0.1).string()),
           "info.border": Color(colors.background.badge).hex(),
           warning: Color(colors.semantic.lintWarning).hex(),
           "warning.background": toHexa(
@@ -146,8 +180,13 @@ function createTheme(
           ),
           hint: Color(colors.neutral[380]).hex(),
           "hint.background": toHexa(
-            Color(colors.syntax.comment).alpha(0.25).string()
+            Color(colors.neutral[380]).alpha(0.25).string()
           ),
+          predictive: Color(colors.syntax.comment).hex(),
+          "predictive.background": toHexa(
+            Color(colors.syntax.comment).alpha(0.2).string()
+          ),
+          "predictive.border": Color(colors.syntax.comment).hex(),
 
           syntax: {
             comment: {
@@ -177,10 +216,10 @@ function createTheme(
               color: Color(colors.syntax.entity).hex(),
             },
             link_text: {
-              color: Color(colors.neutral[1000]).hex(),
+              color: Color(colors.syntax.string).hex(),
             },
             link_uri: {
-              color: Color(colors.neutral[1000]).hex(),
+              color: Color(colors.syntax.string).hex(),
             },
             number: {
               color: Color(colors.syntax.support).hex(),
@@ -220,32 +259,54 @@ function createTheme(
           "elevated_surface.background": Color(colors.neutral[190]).hex(),
           "status_bar.background": Color(colors.neutral[125]).hex(),
           "title_bar.background": Color(colors.neutral[150]).hex(),
+          "title_bar.inactive_background": Color(colors.neutral[125]).hex(),
           "toolbar.background": Color(colors.neutral[150]).hex(),
           "tab_bar.background": Color(colors.neutral[125]).hex(),
           "tab.inactive_background": Color(colors.neutral[125]).hex(),
           "tab.active_background": Color(colors.neutral[150]).hex(),
           "panel.background": Color(colors.neutral[125]).hex(),
+          "panel.indent_guide": Color(colors.neutral[150]).hex(),
+          "panel.indent_guide_active": Color(colors.neutral[190]).hex(),
+          "panel.indent_guide_hover": Color(colors.neutral[190]).hex(),
+          "panel.focused_border": Color(colors.accent).hex(),
           "surface.background": Color(colors.neutral[125]).hex(),
 
           "element.background": Color(colors.neutral[190]).hex(),
           "element.hover": Color(colors.neutral[150]).hex(),
-          "element.active": null,
+          "element.active": Color(colors.neutral[190]).hex(),
           "element.selected": Color(colors.neutral[150]).hex(),
-          "element.disabled": null,
+          "element.disabled": Color(colors.neutral[150]).hex(),
 
+          "ghost_element.background": Color(colors.neutral[150]).hex(),
           "ghost_element.hover": Color(colors.neutral[125]).hex(),
+          "ghost_element.active": Color(colors.neutral[150]).hex(),
           "ghost_element.selected": Color(colors.neutral[150]).hex(),
+          "ghost_element.disabled": Color(colors.neutral[125]).hex(),
 
           "search.match_background": toHexa(colors.background.findMatch),
 
           "pane_group.border": Color(colors.neutral[190]).hex(),
+          "pane.focused_border": Color(colors.accent).hex(),
+          "drop_target.background": toHexa(colors.background.selection),
 
           accents: [],
 
-          "link_text.hover": Color(colors.neutral[1000]).hex(),
+          "link_text.hover": Color(colors.accent).hex(),
+
+          icon: Color(colors.neutral[920]).hex(),
+          "icon.accent": Color(colors.accent).hex(),
+          "icon.disabled": Color(colors.neutral[380]).hex(),
+          "icon.muted": Color(colors.neutral[840]).hex(),
+          "icon.placeholder": Color(colors.neutral[380]).hex(),
+
+          "text.disabled": Color(colors.neutral[380]).hex(),
+          "text.placeholder": Color(colors.neutral[310]).hex(),
 
           hidden: Color(colors.neutral[620]).hex(),
           ignored: Color(colors.syntax.comment).hex(),
+          unreachable: Color(colors.neutral[310]).hex(),
+          "unreachable.background": Color(colors.neutral[75]).hex(),
+          "unreachable.border": Color(colors.neutral[75]).hex(),
 
           players: [
             {
