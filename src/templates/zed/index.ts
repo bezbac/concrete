@@ -307,6 +307,7 @@ function createTheme(
 
           players: [
             {
+              cursor: Color(colors.neutral[620]).hex(),
               selection: selectionBgWithoutAlpha.hex(),
             },
           ],
