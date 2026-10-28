@@ -35,7 +35,7 @@ name = "Concrete"
 version = "0.0.1"
 schema_version = 1
 authors = ["Ben Bachem <10088265+bezbac@users.noreply.github.com>"]
-description = " A vibrant dark theme that blends into MacOS seamlessly."
+description = "A vibrant dark theme that blends into MacOS seamlessly."
 repository = "https://github.com/bezbac/concrete"
   `.trim();
 }
@@ -277,11 +277,8 @@ function createTheme(
           "element.selected": Color(colors.neutral[150]).hex(),
           "element.disabled": Color(colors.neutral[150]).hex(),
 
-          "ghost_element.background": Color(colors.neutral[150]).hex(),
           "ghost_element.hover": Color(colors.neutral[125]).hex(),
-          "ghost_element.active": Color(colors.neutral[150]).hex(),
           "ghost_element.selected": Color(colors.neutral[150]).hex(),
-          "ghost_element.disabled": Color(colors.neutral[125]).hex(),
 
           "search.match_background": toHexa(colors.background.findMatch),
 
@@ -300,7 +297,7 @@ function createTheme(
           "icon.placeholder": Color(colors.neutral[380]).hex(),
 
           "text.disabled": Color(colors.neutral[380]).hex(),
-          "text.placeholder": Color(colors.neutral[310]).hex(),
+          "text.placeholder": Color(colors.neutral[620]).hex(),
 
           hidden: Color(colors.neutral[620]).hex(),
           ignored: Color(colors.syntax.comment).hex(),
