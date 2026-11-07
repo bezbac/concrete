@@ -8,6 +8,7 @@ import { generate as generateHelixTheme } from "./templates/helix";
 import { generate as generateZellijTheme } from "./templates/zellij";
 import { generate as generateAlacrittyTheme } from "./templates/alacritty";
 import { generate as generateWeztermTheme } from "./templates/wezterm";
+import { generate as generateZedTheme } from "./templates/zed";
 
 const baseOutputDirectory = path.resolve("./output/");
 const baseResourceDirectory = path.resolve("./resources/");
@@ -55,6 +56,12 @@ generateAlacrittyTheme({
 });
 
 generateWeztermTheme({
+  colors,
+  baseResourceDirectory,
+  baseOutputDirectory,
+});
+
+generateZedTheme({
   colors,
   baseResourceDirectory,
   baseOutputDirectory,
